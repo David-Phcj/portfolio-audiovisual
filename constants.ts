@@ -51,45 +51,53 @@ export const SKILLS_DATA: Skill[] = [
   },
 ];
 
+// Helper para generar rutas correctas con base path
+const assetPath = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/portfolio-audiovisual/';
+  // Remover el slash inicial si existe y agregar el base path
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${base}${cleanPath}`;
+};
+
 export const PROJECTS_DATA: Project[] = [
   {
     title: 'Spot Publicitario - "Bruso Remodeling"',
     category: 'Publicidad',
     description: 'Video explicativo para empresa estado unidense de arquitectura.',
-    imageUrl: '/assets/brusoImage.png',
-    videoUrl: '/assets/videos/BrusoVideo.mp4',
+    imageUrl: assetPath('assets/brusoImage.png'),
+    videoUrl: assetPath('assets/videos/BrusoVideo.mp4'),
     tools: ['Filmora', 'After Effects'],
   },
   {
     title: 'Comercial Publicitario- "Pulpas Caucasia"',
     category: 'Comercial',
     description: 'Video publicitario para empresa de jugos naturales y verduras.',
-    imageUrl: '/assets/PulpasCaucasiaImage.png',
-    videoUrl: '/assets/videos/PulpasCaucasia.mp4',
+    imageUrl: assetPath('assets/PulpasCaucasiaImage.png'),
+    videoUrl: assetPath('assets/videos/PulpasCaucasia.mp4'),
     tools: ['Filmora'],
   },
   {
     title: 'Animacion 3D - "Blender Tracking"',
     category: 'Animacion 3D',
     description: 'Ejemplo de trackeo de camara con movimiento de camara en blender.',
-    imageUrl: '/assets/BlenderTrackingImage.png',
-    videoUrl: '/assets/videos/BlenderTracking.mp4',
+    imageUrl: assetPath('assets/BlenderTrackingImage.png'),
+    videoUrl: assetPath('assets/videos/BlenderTracking.mp4'),
     tools: ['After Effects', 'Blender'],
   },
   {
     title: 'Documental - "Universidad de Antioquia"',
     category: 'Documental',
     description: 'Documental sobre proyecto universidad de Antioquia (La incertidumbre).',
-    imageUrl: '/assets/DocumentalUdeaImage.png',
-    videoUrl: '/assets/videos/DocumentalUdea.mp4',
+    imageUrl: assetPath('assets/DocumentalUdeaImage.png'),
+    videoUrl: assetPath('assets/videos/DocumentalUdea.mp4'),
     tools: ['Filmora'],
   },
    {
     title: 'Motion Tracking - "Sonic"',
     category: 'Motion Tracking',
     description: 'Ejemplo de motion tracking de camara con movimiento de camara en sonic.',
-    imageUrl: '/assets/MotionTrackingSonicImage.png',
-    videoUrl: '/assets/videos/MotionTrackingSonic.mp4',
+    imageUrl: assetPath('assets/MotionTrackingSonicImage.png'),
+    videoUrl: assetPath('assets/videos/MotionTrackingSonic.mp4'),
     tools: ['After Effects'],
   },
   {
@@ -97,7 +105,7 @@ export const PROJECTS_DATA: Project[] = [
     category: 'Experimental',
     description: 'Un proyecto personal que explora la narrativa visual a través de efectos visuales abstractos y sonido.',
     imageUrl: 'https://picsum.photos/seed/synapse/600/400',
-    videoUrl: '/assets/videos/synapse.mp4',
+    videoUrl: assetPath('assets/videos/synapse.mp4'),
     tools: ['After Effects', 'FL Studio', 'Blender'],
   }
 ];

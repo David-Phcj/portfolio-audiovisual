@@ -154,12 +154,12 @@ const MusicProduction: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 z-10 relative">
           <AudioPlayer
             title="Antes"
-            audioUrl="/assets/audio/antes.mp3"
+            audioUrl={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/audio/antes.mp3`}
             description="Audio sin procesar, antes de la mezcla y masterización."
           />
           <AudioPlayer
             title="Después"
-            audioUrl="/assets/audio/despues.mp3"
+            audioUrl={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/audio/despues.mp3`}
             description="Audio procesado con mezcla y masterización profesional."
           />
         </div>
