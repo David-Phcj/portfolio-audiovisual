@@ -22,3 +22,17 @@ html {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
+/* Animación fade-in para indicadores */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
