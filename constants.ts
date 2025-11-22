@@ -67,7 +67,7 @@ export const PROJECTS_DATA: Project[] = [
     description: 'Video explicativo para empresa estado unidense de arquitectura.',
     imageUrl: assetPath('assets/brusoImage.png'),
     videoUrl: assetPath('assets/videos/BrusoVideo.mp4'),
-    tools: ['Filmora', 'After Effects'],
+    tools: ['Filmora', 'After Effects', 'Illustrator'],
   },
   {
     title: 'Comercial Publicitario- "Pulpas Caucasia"',
@@ -75,7 +75,7 @@ export const PROJECTS_DATA: Project[] = [
     description: 'Video publicitario para empresa de jugos naturales y verduras.',
     imageUrl: assetPath('assets/PulpasCaucasiaImage.png'),
     videoUrl: assetPath('assets/videos/PulpasCaucasia.mp4'),
-    tools: ['Filmora'],
+    tools: ['Filmora', 'Photoshop'],
   },
   {
     title: 'Animacion 3D - "Blender Tracking"',
@@ -91,7 +91,7 @@ export const PROJECTS_DATA: Project[] = [
     description: 'Documental sobre proyecto universidad de Antioquia (La incertidumbre).',
     imageUrl: assetPath('assets/DocumentalUdeaImage.png'),
     videoUrl: assetPath('assets/videos/DocumentalUdea.mp4'),
-    tools: ['Filmora'],
+    tools: ['Filmora', 'Fl Studio'],
   },
    {
     title: 'Motion Tracking - "Sonic"',
@@ -102,12 +102,12 @@ export const PROJECTS_DATA: Project[] = [
     tools: ['After Effects'],
   },
   {
-    title: 'Cortometraje Experimental - "Synapse"',
-    category: 'Experimental',
-    description: 'Un proyecto personal que explora la narrativa visual a través de efectos visuales abstractos y sonido.',
-    imageUrl: 'https://picsum.photos/seed/synapse/600/400',
-    videoUrl: assetPath('assets/videos/synapse.mp4'),
-    tools: ['After Effects', 'FL Studio', 'Blender'],
+    title: 'Contribucion en YouTube - "Hongo Gamer"',
+    category: 'Edicion de video',
+    description: 'Contribucion en YouTube para el canal de Hongo Gamer.',
+    imageUrl: assetPath('assets/ContribucionYtImage.png'),
+    videoUrl: assetPath('assets/videos/ContribucionYt.mp4'),
+    tools: ['After Effects', 'Filmora', 'Illustrator', 'Premiere Pro', 'Fl Studio', 'Photoshop'],
   }
 ];
 
