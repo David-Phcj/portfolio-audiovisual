@@ -9,7 +9,7 @@ const About: React.FC = () => {
       <div className="mt-12 grid md:grid-cols-5 gap-12 items-start">
         <div className="md:col-span-2">
             <img 
-                src="/assets/profile.jpeg" 
+                src={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/profile.jpeg`}
                 alt="Retrato de Alejandro Osorno Sanchez" 
                 className="rounded-lg shadow-2xl shadow-cyan-500/10 object-cover aspect-square"
             />
