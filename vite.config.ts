@@ -7,7 +7,8 @@ export default defineConfig(({ mode }) => {
     // Para GitHub Pages, usa el nombre del repositorio como base path
     // Si tu repo se llama "portfolio-audiovisual", usa base: '/portfolio-audiovisual/'
     // Si lo despliegas en la raíz del dominio, usa base: '/'
-    const base = process.env.GITHUB_PAGES_BASE || '/';
+    // IMPORTANTE: Si tu repositorio NO es tu-usuario.github.io, debes usar el nombre del repo
+    const base = process.env.GITHUB_PAGES_BASE || '/portfolio-audiovisual/';
     
     return {
       base: base,
