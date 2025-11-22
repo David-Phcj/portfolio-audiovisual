@@ -6,9 +6,10 @@ interface AudioPlayerProps {
   title: string;
   audioUrl: string;
   description: string;
+  isFeatured?: boolean;
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, description }) => {
+const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, description, isFeatured = false }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -49,6 +50,65 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, description 
     const secs = Math.floor(seconds % 60);
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
+
+  if (isFeatured) {
+    return (
+      <div className="relative bg-gradient-to-br from-slate-800/90 via-cyan-900/70 to-blue-900/80 p-5 sm:p-6 md:p-8 rounded-xl border-2 border-cyan-500/50 shadow-2xl shadow-cyan-500/20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 via-blue-600/20 to-cyan-500/20"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/30 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/30 rounded-full blur-2xl"></div>
+        <div className="relative z-10">
+          <div className="flex items-center gap-2 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <h4 className="text-lg sm:text-xl font-bold text-white">{title}</h4>
+          </div>
+          <p className="text-sm sm:text-base text-slate-200 mb-4 sm:mb-5">{description}</p>
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <button
+                onClick={togglePlay}
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-full p-3 sm:p-3.5 md:p-4 transition-all duration-200 flex-shrink-0 shadow-lg shadow-cyan-500/50 transform hover:scale-110"
+                aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
+              >
+                {isPlaying ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                )}
+              </button>
+              <div className="flex-1 min-w-0">
+                <input
+                  type="range"
+                  min="0"
+                  max={duration || 0}
+                  value={currentTime}
+                  onChange={handleSeek}
+                  className="w-full h-2 sm:h-2.5 bg-slate-700/50 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                />
+                <div className="flex justify-between text-sm text-slate-200 mt-1">
+                  <span>{formatTime(currentTime)}</span>
+                  <span>{formatTime(duration)}</span>
+                </div>
+              </div>
+            </div>
+            <audio
+              ref={audioRef}
+              src={audioUrl}
+              onTimeUpdate={handleTimeUpdate}
+              onLoadedMetadata={handleLoadedMetadata}
+              onEnded={() => setIsPlaying(false)}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-slate-900/60 p-4 sm:p-5 md:p-6 rounded-lg border border-slate-700/50">
@@ -151,16 +211,39 @@ const MusicProduction: React.FC = () => {
         </div>
 
         {/* Reproductores de Audio Antes/Después */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 z-10 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 z-10 relative mb-6 sm:mb-8">
           <AudioPlayer
             title="Antes"
-            audioUrl={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/audio/antes.mp3`}
+            audioUrl={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/audio/ProduccionCancionAntes.mpeg`}
             description="Audio sin procesar, antes de la mezcla y masterización."
           />
           <AudioPlayer
             title="Después"
-            audioUrl={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/audio/despues.mp3`}
+            audioUrl={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/audio/ProduccionCancionDespues.mpeg`}
             description="Audio procesado con mezcla y masterización profesional."
+          />
+        </div>
+
+        {/* Disclaimer de Audífonos */}
+        <div className="z-10 relative mb-4 sm:mb-5 flex items-center justify-center">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400/70 bg-slate-900/30 border border-slate-700/30 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 14v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <path d="M17 14v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"></path>
+              <path d="M9 6v12"></path>
+              <path d="M15 6v12"></path>
+            </svg>
+            <span className="text-slate-400/80">Para mayor inmersión, se recomienda usar audífonos</span>
+          </div>
+        </div>
+
+        {/* Beat Destacado */}
+        <div className="z-10 relative">
+          <AudioPlayer
+            title="Beat Original"
+            audioUrl={`${import.meta.env.BASE_URL || '/portfolio-audiovisual/'}assets/audio/ProduccionBeat.mpeg`}
+            description="Producción original de beat creada desde cero, demostrando habilidades en composición y producción musical."
+            isFeatured={true}
           />
         </div>
       </div>
