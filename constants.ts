@@ -54,7 +54,7 @@ export const SKILLS_DATA: Skill[] = [
 // Helper para generar rutas correctas con base path
 const assetPath = (path: string) => {
   // @ts-ignore - BASE_URL es proporcionado por Vite en tiempo de build
-  const base = (import.meta.env?.BASE_URL as string) || '/portfolio-audiovisual/';
+  const base = (import.meta.env?.BASE_URL as string) || '/';
   // Remover el slash inicial si existe y agregar el base path
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
   return `${base}${cleanPath}`;
