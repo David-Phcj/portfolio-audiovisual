@@ -1,6 +1,25 @@
 import React from 'react';
 
 const Hero: React.FC = () => {
+  const handleProjectsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetElement = document.getElementById('projects');
+    
+    if (targetElement) {
+      const headerHeight = 80;
+      const targetPosition = targetElement.offsetTop - headerHeight;
+      
+      // Disparar evento personalizado para animar el título
+      const scrollEvent = new CustomEvent('section-scroll', { detail: { sectionId: 'projects' } });
+      window.dispatchEvent(scrollEvent);
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center text-center px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-slate-800 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
@@ -17,6 +36,7 @@ const Hero: React.FC = () => {
             </p>
             <a 
                 href="#projects"
+                onClick={handleProjectsClick}
                 className="mt-10 inline-block bg-cyan-500 text-white font-bold py-3 px-8 rounded-full hover:bg-cyan-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/20 animate-fade-in-up"
                 style={{ animationDelay: '1s' }}
             >

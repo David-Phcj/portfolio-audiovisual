@@ -131,7 +131,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 const Projects: React.FC = () => {
   return (
     <section id="projects" className="container mx-auto">
-      <SectionTitle title="Proyectos Destacados" subtitle="Donde las Ideas Cobran Vida" />
+      <SectionTitle title="Proyectos Destacados" subtitle="Donde las Ideas Cobran Vida" sectionId="projects" />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {PROJECTS_DATA.map((project) => (
           <ProjectCard key={project.title} project={project} />

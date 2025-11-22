@@ -5,7 +5,7 @@ import SectionTitle from './SectionTitle';
 const About: React.FC = () => {
   return (
     <section id="about" className="container mx-auto">
-      <SectionTitle title="Sobre Mí" subtitle="Mi Pasión, Mi Profesión" />
+      <SectionTitle title="Sobre Mí" subtitle="Mi Pasión, Mi Profesión" sectionId="about" />
       <div className="mt-12 grid md:grid-cols-5 gap-12 items-start">
         <div className="md:col-span-2">
             <img 

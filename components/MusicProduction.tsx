@@ -180,7 +180,7 @@ const MusicProduction: React.FC = () => {
   
   return (
     <section id="music" className="container mx-auto">
-      <SectionTitle title="Producción Musical" subtitle="El Arte de Esculpir el Sonido" />
+      <SectionTitle title="Producción Musical" subtitle="El Arte de Esculpir el Sonido" sectionId="music" />
       <div className="mt-12 p-4 sm:p-6 md:p-8 bg-slate-800/50 border border-slate-700/50 rounded-lg shadow-xl relative overflow-hidden">
         <div className="absolute -top-16 -right-16 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>

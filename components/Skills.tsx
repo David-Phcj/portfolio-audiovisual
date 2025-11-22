@@ -53,7 +53,7 @@ const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => {
 const Skills: React.FC = () => {
   return (
     <section id="skills" className="container mx-auto">
-      <SectionTitle title="Habilidades" subtitle="Mis Herramientas Creativas" />
+      <SectionTitle title="Habilidades" subtitle="Mis Herramientas Creativas" sectionId="skills" />
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {SKILLS_DATA.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />

@@ -61,7 +61,7 @@ const StudyItem: React.FC<{ study: Study; isLast: boolean; index: number }> = ({
 const Studies: React.FC = () => {
   return (
     <section id="studies" className="container mx-auto">
-      <SectionTitle title="Estudios" subtitle="Mi Trayectoria Formativa" />
+      <SectionTitle title="Estudios" subtitle="Mi Trayectoria Formativa" sectionId="studies" />
       <div className="mt-12 max-w-3xl mx-auto">
         <div className="relative border-l-2 border-slate-700/50">
           {STUDIES_DATA.map((study, index) => (
